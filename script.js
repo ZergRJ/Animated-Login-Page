@@ -1,40 +1,42 @@
-console.log("JS carregou");
+const form = document.getElementById("login-form");
+const welcomeMessage = document.getElementById("welcome-message");
+const logoutButton = document.getElementById("logout-btn");
 
-function validarLogin() {
-  const email = document.getElementById("email");
-  const senha = document.getElementById("senha");
+window.onload = function () {
+  const user = localStorage.getItem("user");
 
-  let valido = true;
+  if (welcomeMessage) {
+    if (!user) {
+      window.location.href = "index.html";
+      return;
+    }
 
-  // reset visual
-  email.style.border = "";
-  senha.style.border = "";
-
-  // valida email
-  if (!email.value.includes("@")) {
-    email.style.border = "2px solid red";
-    valido = false;
+    welcomeMessage.textContent = "Bem-vindo, " + user;
+  } else if (user && form) {
+    document.getElementById("email").value = user;
   }
+};
 
-  // valida senha
-  if (senha.value.length < 8) {
-    senha.style.border = "2px solid red";
-    valido = false;
-  }
+if (form) {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  return valido;
+    if (!form.reportValidity()) {
+      return;
+    }
+
+    const email = document.getElementById("email").value;
+
+    localStorage.setItem("user", email);
+    window.location.href = "dashboard.html";
+  });
 }
 
+if (logoutButton) {
+  logoutButton.addEventListener("click", logout);
+}
 
-// evento de login
-function login(event) {    
-  const valido = validarLogin();
-  event.preventDefault(); // impede recarregar
-
-  if (!valido) return;
-
-  const email = document.getElementById("email").value;
-  const senha = document.getElementById("senha").value;
-
-  console.log(email, senha);
+function logout() {
+  localStorage.removeItem("user");
+  window.location.href = "index.html";
 }

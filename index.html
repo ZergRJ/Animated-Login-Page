@@ -11,26 +11,26 @@
         
         <section class="login">
             <h2>Login</h2>
-            <form onsubmit="login(event)">
+            <form id="login-form">
                 <div class="input-group">
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" name="email" placeholder=" " required>
                     <label>E-mail</label>
                 </div>
 
                 <div class="input-group">
-                    <input type="password" id="senha" required minlength="8">
+                    <input type="password" id="senha" name="senha" placeholder=" " required minlength="8">
                     <label>Senha</label>
                 </div>
 
                 <div class="remember-forgot">
-                    <label><input type="checkbox" name="" id="">Manter Conectado.</label>
-                    <a href="">Esqueceu a senha?</a>
+                    <label><input type="checkbox" name="manter-conectado" id="manter-conectado">Manter conectado.</label>
+                    <a href="#">Esqueceu a senha?</a>
                 </div>
 
                 <button type="submit" class="login-btn">Login</button>
                 
                 <div class="register-link">
-                <p>Não tem uma conta ainda? <a href="#">Resgistre-se!</a></p>
+                <p>Não tem uma conta ainda? <a href="#">Registre-se!</a></p>
                 </div>
             </form>
         </section>
