@@ -1,5 +1,29 @@
 @charset "utf-8";
 
+:root {
+    --text-color: #1f2937;
+    --muted-text: rgba(31, 41, 55, 0.78);
+    --panel-background: rgba(255, 255, 255, 0.24);
+    --panel-border: rgba(255, 255, 255, 0.55);
+    --panel-shadow: 0 25px 45px rgba(15, 23, 42, 0.24);
+    --highlight: rgba(255, 255, 255, 0.18);
+    --button-background: rgba(255, 255, 255, 0.55);
+    --button-background-hover: rgba(255, 255, 255, 0.8);
+    --background-image: url("../imagem/Galaxya.gif");
+}
+
+body[data-theme="dark"] {
+    --text-color: #f8fafc;
+    --muted-text: rgba(248, 250, 252, 0.8);
+    --panel-background: rgba(15, 23, 42, 0.28);
+    --panel-border: rgba(255, 255, 255, 0.24);
+    --panel-shadow: 0 25px 45px rgba(0, 0, 0, 0.45);
+    --highlight: rgba(255, 255, 255, 0.06);
+    --button-background: rgba(255, 255, 255, 0.22);
+    --button-background-hover: rgba(255, 255, 255, 0.32);
+    --background-image: url("../imagem/Galaxya2.png");
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,20 +33,46 @@
 
 body {
     min-height: 100vh;
-    background-image: url("../imagem/Galaxya.gif");
+    min-height: 100dvh;
+    background-image: var(--background-image);
     background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 main {
     width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     justify-content: center;
-    padding: 24px;
+    align-items: center;
+    padding: 32px 24px;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    padding: 12px 18px;
+    border: 1px solid var(--panel-border);
+    border-radius: 999px;
+    background: var(--panel-background);
+    color: var(--text-color);
+    backdrop-filter: blur(14px);
+    box-shadow: var(--panel-shadow);
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    z-index: 20;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    background: var(--button-background-hover);
 }
 
 .dashboard-card {
@@ -31,9 +81,9 @@ main {
     padding: 42px 36px;
     border-radius: 24px;
     backdrop-filter: blur(15px);
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.4);
+    background: var(--panel-background);
+    border: 1px solid var(--panel-border);
+    box-shadow: var(--panel-shadow);
     overflow: hidden;
     text-align: center;
 }
@@ -45,7 +95,7 @@ main {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--highlight);
     transform: skewX(-15deg);
     transition: 0.5s;
     pointer-events: none;
@@ -56,15 +106,15 @@ main {
 }
 
 .dashboard-kicker {
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 14px;
+    color: var(--muted-text);
+    font-size: 12px;
     letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 #welcome-message {
-    color: #fff;
+    color: var(--text-color);
     font-size: 30px;
     font-weight: 600;
     line-height: 1.3;
@@ -73,7 +123,7 @@ main {
 }
 
 .dashboard-text {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--muted-text);
     font-size: 15px;
     line-height: 1.6;
     margin-bottom: 30px;
@@ -82,11 +132,11 @@ main {
 .dashboard-btn {
     width: 100%;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.3);
+    background: var(--button-background);
     border: none;
     outline: none;
     border-radius: 35px;
-    color: #fff;
+    color: var(--text-color);
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
@@ -95,7 +145,65 @@ main {
 }
 
 .dashboard-btn:hover {
-    background: rgba(255, 255, 255, 0.4);
+    background: var(--button-background-hover);
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 768px) {
+    main {
+        padding: 40px 32px;
+    }
+
+    .dashboard-card {
+        width: min(100%, 480px);
+    }
+}
+
+@media (max-width: 767px) {
+    main {
+        padding: 88px 18px 24px;
+    }
+
+    .dashboard-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    main {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 16px;
+        padding: 20px 14px;
+    }
+
+    .theme-toggle {
+        position: static;
+        width: calc(100% - 28px);
+        max-width: 420px;
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .dashboard-card {
+        max-width: 420px;
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    #welcome-message {
+        font-size: 24px;
+    }
+
+    .dashboard-kicker,
+    .dashboard-text {
+        font-size: 13px;
+    }
+
+    .dashboard-btn {
+        padding: 14px;
+        font-size: 15px;
+    }
 }

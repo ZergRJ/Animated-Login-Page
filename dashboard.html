@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <meta name="description" content="Painel demonstrativo do Portal do Universo.">
+    <title>Portal do Universo | Painel</title>
     <link rel="stylesheet" href="estilos/dashboard.css">
 </head>
-<body>
-    <main>
-        <section class="dashboard-card">
-            <p class="dashboard-kicker">Dashboard</p>
+<body data-page="dashboard">
+    <main class="dashboard-layout">
+        <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Alternar tema">
+            Tema escuro
+        </button>
+
+        <section class="dashboard-card" aria-labelledby="welcome-message">
+            <p class="dashboard-kicker">Portal do Universo</p>
             <h1 id="welcome-message">Bem-vindo</h1>
-            <p class="dashboard-text">Seu login foi realizado com sucesso.</p>
-            <button id="logout-btn" class="dashboard-btn" type="button">Logout</button>
+            <p class="dashboard-text">Seu acesso foi validado nesta demonstração visual.</p>
+            <button id="logout-btn" class="dashboard-btn" type="button">Sair da experiencia</button>
         </section>
     </main>
 

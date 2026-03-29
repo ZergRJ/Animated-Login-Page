@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tela demonstrativa de cadastro com tema alternável.">
+    <title>Portal do Universo | Cadastro</title>
+    <link rel="stylesheet" href="estilos/login.css">
+</head>
+<body data-page="register">
+    <main class="auth-layout">
+        <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Alternar tema">
+            Tema escuro
+        </button>
+
+        <section class="login" aria-labelledby="page-title">
+            <p class="eyebrow">Portal do Universo</p>
+            <h1 id="page-title">Criar conta</h1>
+            <p class="page-description">Monte seu acesso de demonstração e explore a interface completa.</p>
+
+            <form id="register-form" novalidate>
+                <div class="input-group">
+                    <input type="text" id="register-name" name="nome" placeholder=" " autocomplete="name" required>
+                    <label for="register-name">Nome</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="register-email" name="email" placeholder=" " autocomplete="email" required>
+                    <label for="register-email">E-mail</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="register-password" name="senha" placeholder=" " autocomplete="new-password" required minlength="8">
+                    <label for="register-password">Senha</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="register-confirm-password" name="confirmar-senha" placeholder=" " autocomplete="new-password" required minlength="8">
+                    <label for="register-confirm-password">Confirmar senha</label>
+                </div>
+
+                <button type="submit" class="login-btn">Criar conta</button>
+
+                <div class="register-link">
+                    <p>Já tem conta? <a href="index.html">Voltar para login</a></p>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

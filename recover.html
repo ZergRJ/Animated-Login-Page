@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tela demonstrativa de recuperação de senha com tema alternável.">
+    <title>Portal do Universo | Recuperar Senha</title>
+    <link rel="stylesheet" href="estilos/login.css">
+</head>
+<body data-page="recover">
+    <main class="auth-layout">
+        <button class="theme-toggle" type="button" id="theme-toggle" aria-label="Alternar tema">
+            Tema escuro
+        </button>
+
+        <section class="login" aria-labelledby="page-title">
+            <p class="eyebrow">Portal do Universo</p>
+            <h1 id="page-title">Recuperar senha</h1>
+            <p class="page-description">Informe seu e-mail para receber um link simbólico de redefinição.</p>
+
+            <form id="recover-form" novalidate>
+                <div class="input-group">
+                    <input type="email" id="recover-email" name="email" placeholder=" " autocomplete="email" required>
+                    <label for="recover-email">E-mail</label>
+                </div>
+
+                <button type="submit" class="login-btn">Enviar link</button>
+
+                <div class="register-link">
+                    <p>Lembrou sua senha? <a href="index.html">Voltar para login</a></p>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
